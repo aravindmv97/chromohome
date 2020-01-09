@@ -119,6 +119,7 @@ const LoginCTA = styled.div`
 
 export const Home = () => {
   let userDetails = localStorage.getItem("_user_details_");
+  let savedImg = localStorage.getItem("_bg_");
 
   const [isLoggedIn, setIsLoggedIn] = useState(
     typeof userDetails !== "undefined" && userDetails !== null ? true : false
@@ -127,7 +128,9 @@ export const Home = () => {
   const [changePassword, setChangePassword] = useState(false);
   const [changeBG, setChangeBG] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const [savedImage, setSavedImage] = useState("");
+  const [savedImage, setSavedImage] = useState(
+    typeof savedImg !== "undefined" && savedImg ? savedImg : ""
+  );
   const [login, setLogin] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -178,8 +181,8 @@ export const Home = () => {
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-  console.log(savedImage,selectedImage)
-  return (  
+  console.log(savedImage, selectedImage);
+  return (
     <HomeContainer bg={selectedImage === "" ? savedImage : selectedImage || BG}>
       <Wrapper>
         {!isLoggedIn || login ? <AppName>CHROMOHOME</AppName> : null}
