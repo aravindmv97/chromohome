@@ -126,7 +126,7 @@ export const Home = () => {
   const [editProfile, setEditProfile] = useState(false);
   const [changePassword, setChangePassword] = useState(false);
   const [changeBG, setChangeBG] = useState(false);
-  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImage, setSelectedImage] = useState("");
   const [savedImage, setSavedImage] = useState("");
   const [login, setLogin] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -178,8 +178,8 @@ export const Home = () => {
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-
-  return (
+  console.log(savedImage,selectedImage)
+  return (  
     <HomeContainer bg={selectedImage === "" ? savedImage : selectedImage || BG}>
       <Wrapper>
         {!isLoggedIn || login ? <AppName>CHROMOHOME</AppName> : null}
