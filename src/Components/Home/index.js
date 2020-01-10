@@ -26,7 +26,7 @@ const HomeContainer = styled.div`
   align-items: center;
   background-size: cover;
   position: relative;
-  animation: ${FadeIn} 0.9s;
+  animation: ${FadeIn} 0.2s;
   transition: 0.2s;
 `;
 

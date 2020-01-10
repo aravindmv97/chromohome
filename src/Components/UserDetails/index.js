@@ -1,5 +1,5 @@
-import React, { useState, useEffect, FC } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 import { FadeIn } from "../Popover";
 
@@ -21,17 +21,17 @@ const InputWrapper = styled.div`
 
 const NameInputWrapper = styled(InputWrapper)`
   display: ${props => (props.show ? "flex" : "none")};
-  animation: ${FadeIn} 0.9s;
+  animation: ${FadeIn} 0.2s;
 `;
 
 const EmailInputWrapper = styled(InputWrapper)`
   display: ${props => (props.show ? "flex" : "none")};
-  animation: ${FadeIn} 0.9s;
+  animation: ${FadeIn} 0.2s;
 `;
 
 const PasswordInputWrapper = styled(InputWrapper)`
   display: ${props => (props.show ? "flex" : "none")};
-  animation: ${FadeIn} 0.9s;
+  animation: ${FadeIn} 0.2s;
 `;
 
 const Label = styled.div`

@@ -13,6 +13,7 @@ const UserName = styled.div`
   text-align: center;
   color: #fff;
   letter-spacing: 3px;
+  animation: ${FadeIn} 0.2s;
 `;
 
 const Greeting = styled.div`
@@ -22,21 +23,41 @@ const Greeting = styled.div`
   text-align: center;
   letter-spacing: 1px;
   margin-top: 20px;
+  animation: ${FadeIn} 0.2s;
 `;
 
 export const WelcomeText = () => {
   let currentTime = new Date();
-  let greeting = "";
   let userDetails = localStorage.getItem("_user_details_");
+  const time = currentTime.getHours();
   const [name, setName] = useState("");
-
-  if (currentTime.getHours() >= 6 && currentTime.getHours() <= 12) {
-    greeting = "Good Morning";
-  } else if (currentTime.getHours() >= 13 && currentTime.getHours() <= 18) {
-    greeting = "Good Afternoon";
-  } else {
-    greeting = "Good Evening";
-  }
+  let greetings = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
 
   useEffect(() => {
     if (userDetails) {
@@ -49,8 +70,12 @@ export const WelcomeText = () => {
 
   return (
     <WelcomeTextWrapper>
-      <UserName>Hey {name}</UserName>
-      <Greeting>{greeting}</Greeting>
+      {name ? (
+        <>
+          <UserName>Hey {name}</UserName>
+          <Greeting>{greetings[time]}</Greeting>
+        </>
+      ) : null}
     </WelcomeTextWrapper>
   );
 };
